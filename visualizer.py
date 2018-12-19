@@ -3,7 +3,8 @@ import turtle
 
 
 class Visualizer:
-    def __init__(self, sequence):
+    def __init__(self, sequence, animation_peed):
+        self.speed = animation_peed
         self.sequence = sequence
 
     def get_window(self):
@@ -16,7 +17,7 @@ class Visualizer:
         wn = self.get_window()
 
         t = turtle.Turtle()
-        t.speed("fast")
+        t.speed(self.speed)
         t.penup()
 
         dimx, dimy = wn.screensize()

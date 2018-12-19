@@ -19,7 +19,7 @@ class TSP:
         return cls(data)
 
     def visualize(self, path):
-        Visualizer(path).draw()
+        Visualizer(path, "fast").draw()
 
     def nearest_neighbour(self):
         """ A simple heuristic approach to the TSP
@@ -50,7 +50,7 @@ class TSP:
         return path, length
 
     @staticmethod
-    def repeat_n(fn, n=100):
+    def repeat_n(fn, n=50):
         """ Repeats a heuristic method n times
         fn: A function that returns a tuple (path: [], length: int)
         """
@@ -75,5 +75,7 @@ class TSP:
 if __name__ == "__main__":
     tsp = TSP.from_file("dataset.tsv")
     path, dist = TSP.repeat_n(tsp.nearest_neighbour)
+
+    print("Distance:", dist)
 
     tsp.visualize(path)
